@@ -1,0 +1,22 @@
+     <div class="row" style="margin:100px 0px 0px 300px">
+        <div class="col-lg-4" >
+          <img class="img-thumbnail" ng-src="{{movie.image}}" style="width: 250px; height: 250px;">
+          <h2>{{movie.name}}</h2>
+          <p>{{movie.money | currency:"$"}}</p>
+          <p>{{movie.detail}}</p>
+         <p>
+       
+       
+        <select class="form-control"   ng-model="theateritem"  ng-options=" theater.name for theater in movie.theaters">
+             <option value="" selected>--Please select a theater--</option>
+       </select>
+        <select  class="form-control"   ng-model="numitem"  ng-options="num for num in numbers">
+             <option value="" selected>--Quantity--</option>
+       </select>
+        <button type="button" class="btn btn-lg btn-info" ng-click="add()">add to shopping car</button>
+        
+        </p>
+        </div>
+       
+      </div>
+      

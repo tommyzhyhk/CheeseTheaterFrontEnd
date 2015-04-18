@@ -1,0 +1,8 @@
+ <div class="row" style="margin:130px 15px 0px 15px;">
+        <div class="col-lg-4"  ng-repeat="movie in movies">
+          <img class="img-circle" ng-src="{{movie.image}}" style="width: 140px; height: 140px;">
+          <h2>{{movie.name}}</h2>
+          <p>{{movie.detail|limitTo:120}}</p>
+          <p><a class="btn btn-default" href="movie/{{movie.id}}" role="button">View details &raquo;</a></p>
+          </div>
+      </div>

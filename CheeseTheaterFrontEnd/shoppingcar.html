@@ -1,0 +1,5 @@
+<div>
+<table style="margin:150px auto auto auto;width:700px" class="table table-bordered">
+<tr><td>movie</td><td>theater</td><td>tickets</td><td>price</td><td><input type="checkbox" id="totalcheck"/></td></tr>   
+<tr ng-repeat="shoppingmovie in shoppingmovies">
+<td>{{shoppingmovie.movie|decodeURIComponent}}</td><td>{{shoppingmovie.theater|decodeURIComponent}}</td><td>{{shoppingmovie.tickets}}</td><td>{{shoppingmovie.moneys}}</td><td><input class="c2" type="checkbox" value="{{shoppingmovie.moneys}}" data-movieid="{{shoppingmovie.id}}" data-moviename="{{shoppingmovie.movie|decodeURIComponent}}" data-theatername="{{shoppingmovie.theater|decodeURIComponent}}" data-moneys="{{shoppingmovie.moneys}}" data-tickets="{{shoppingmovie.tickets}}" data-orderid="{{shoppingmovie.orderid|decodeURIComponent}}"/></td>   </tr> </table><p style="margin:0px auto auto 900px;">Total:{{total|currency:"$"}}</p><button ng-click="checkout()"style="margin:0px auto auto 900px;" type="button" class="btn btn-primary">Checkout</button></div>
