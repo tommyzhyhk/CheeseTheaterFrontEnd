@@ -18,7 +18,7 @@ var app=angular.module('myapp',['ngResource','ngRoute','ngCookies']);
 
 }]);
     
-
+//logip controller
 app.controller('logup',['$scope','$resource','$cookies','$rootScope','$location',function($scope,$resource,$cookies,$rootScope,$location){
         
         $scope.match=function(form){
@@ -75,7 +75,7 @@ app.controller('logup',['$scope','$resource','$cookies','$rootScope','$location'
 }]);
 
 
-
+//login controller
 app.controller('login',['$scope','$resource','$location','$rootScope',function($scope,$resource,$location,$rootScope){
   var res=$resource('/cheesetheater/api-token-auth/',{},{
    postform:{method:"POST",isArray:false,headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'}},
@@ -132,7 +132,7 @@ app.controller('navbar',['$scope','$location','$rootScope',function($scope,$loca
 
 
 }]);
-
+//moviesearch controller
 app.controller('moviesearch',['$scope','$resource','$location',function($scope,$resource,$location){
          var res=$resource('/cheesetheater/moviesearch');
          var searchname=$location.search().search;
@@ -145,7 +145,7 @@ app.controller('moviesearch',['$scope','$resource','$location',function($scope,$
 
 }]);
 
- 
+ //movies controller return all movies
 app.controller('movies',['$scope','$resource',function($scope,$resource){
         var res=$resource('/cheesetheater/movies');
          var moviesback=res.query(function(){
@@ -158,7 +158,7 @@ app.controller('movies',['$scope','$resource',function($scope,$resource){
 }]);
 
 
-
+//moviedetail controller return specified movie detail
 app.controller('moviedetail',['$scope','$resource','$routeParams','$rootScope',function($scope,$resource,$routeParams,$rootScope){
              var res=$resource('/cheesetheater/movie/:id');
              var movieback=res.get({id:$routeParams.id},function(){
@@ -198,7 +198,7 @@ app.controller('moviedetail',['$scope','$resource','$routeParams','$rootScope',f
 
 
 
-
+//shoopingcar controller and payment functionality
 app.controller('shoppingcar',['$scope','$resource','$rootScope','$location',function($scope,$resource,$rootScope,$location){
               $scope.total=0;
           var r=$resource('/cheesetheater/shoppingcar');
@@ -318,7 +318,7 @@ app.filter('decodeURIComponent',function(){
 
 });
 
-
+//return all logined user orders history
 app.controller('order',['$scope','$resource','$location',function($scope,$resource,$location){
                 if(localStorage.token!=null){
                var res=$resource('/cheesetheater/orders',{},{queryorder:{method:'GET',isArray:true,headers:{'Authorization': 'Token '+localStorage.token}}});
